@@ -8,12 +8,12 @@ interface ButtonProps {
   children: React.ReactNode;
 }
 
-const SubmitButton = ({ isLoading, className, children }) => {
+const SubmitButton = ({ isLoading, className, children }: ButtonProps) => {
   return (
     <Button
       type="submit"
       disabled={isLoading}
-      className={className ?? "shad-primary-btn w-full"}
+      className={className ?? "shad-primary-btn w-full green-500"}
     >
       {isLoading ? (
         <div className="flex items-center gap-4">
