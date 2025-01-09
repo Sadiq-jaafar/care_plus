@@ -25,7 +25,7 @@ import {
   SelectValue,
 } from "../ui/select";
 import { Textarea } from "../ui/textarea";
-import { Checkbox } from "@radix-ui/react-checkbox";
+import { Checkbox } from "../ui/checkbox";
 
 interface CustomProps {
   control: Control<any>;
@@ -144,20 +144,19 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
     case FormFieldType.SKELETON:
       return renderSkeleton ? renderSkeleton(field) : null;
 
-    case FormFieldType.CHEAKBOX:
+    case FormFieldType.CHECKBOX:
       return (
         <FormControl>
           <div className="flex items-center">
             <Checkbox
               id={props.name}
-              checked={field.value}
+              checked={field.value} // Ensure field.value is a boolean
               onCheckedChange={field.onChange}
             />
             <label htmlFor={props.name} className="checkbox-label">
               {props.label}
             </label>
           </div>
-          ;
         </FormControl>
       );
 
@@ -175,7 +174,7 @@ const CustomFormField = (props: CustomProps) => {
       name={name}
       render={({ field }) => (
         <FormItem className="flex-1">
-          {fieldType !== FormFieldType.CHEAKBOX && label && (
+          {fieldType !== FormFieldType.CHECKBOX && label && (
             <FormLabel>{label}</FormLabel>
           )}
 
