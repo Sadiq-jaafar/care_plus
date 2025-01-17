@@ -19,6 +19,8 @@ declare type SearchParamProps = {
   
   declare interface RegisterUserParams extends CreateUserParams {
     userId: string;
+    email:string;
+    phone:string;
     birthDate: Date;
     gender: Gender;
     address: string;
